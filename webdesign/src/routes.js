@@ -1,5 +1,6 @@
 import Home from './components/Home.vue';
 import SampleForm from './components/SampleForm.vue';
+import SampleTable from './components/SampleTable/SampleTable.vue';
 
 export const routes = [
     {
@@ -11,9 +12,16 @@ export const routes = [
     },
     {
         path: '/sample-form',
-        name: 'vueblue',
+        name: 'sampleForm',
         components: {
             default: SampleForm
+        }
+    },
+    {
+        path: '/sample-table',
+        name: 'sampleTable',
+        components: {
+            default: SampleTable
         }
     }
 
