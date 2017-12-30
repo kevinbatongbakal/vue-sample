@@ -2,5 +2,12 @@
 // create style modules copy implementation from a3 project
 
 .router-link-active {
-    color: #000;
+    color: skyblue;
+}
+
+
+.custom-is-danger {
+    .input {
+        border-color: #ff3860;
+    }
 }
