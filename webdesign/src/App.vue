@@ -10,16 +10,12 @@
 </template>
 
 <script>
-import Home from "./components/Home.vue";
-import SampleForm from "./components/SampleForm.vue";
 import Header from "./components/Header.vue";
 import Footer from "./components/Footer.vue";
 
 export default {
   name: "app",
   components: {
-    "home-component": Home,
-    "sample-form": SampleForm,
     "header-component": Header,
     "footer-component": Footer
   }

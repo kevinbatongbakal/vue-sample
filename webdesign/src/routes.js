@@ -1,6 +1,6 @@
 import Home from './components/Home.vue';
-import SampleForm from './components/SampleForm.vue';
-import SampleTable from './components/SampleTable/SampleTable.vue';
+import SampleForm from './components/sample/SampleForm.vue';
+import SampleTable from './components/sample/SampleTable.vue';
 
 export const routes = [
     {

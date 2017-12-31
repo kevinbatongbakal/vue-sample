@@ -54,18 +54,21 @@
             //- a.button.is-primary.is-pulled-right(@click="onSubmit()", :disabled="$v.$invalid") Submit
             button.button.is-primary.is-pulled-right(@click.prevent="onSubmit()", :disabled="$v.$invalid") Submit
 
-
       br
       br
       .columns
         .column
           p {{ form }}
 
+          .control
+            button.button.is-success(@click.prevent="sampleGlobalMethod('qwe')") Mixin method
+            p from mixin - {{ sampleGlobalVar }}
+
 </template>
 
 <script>
 import { required, email, numeric } from "vuelidate/lib/validators";
-import SampleTable from "./SampleTable/SampleTable.vue";
+import { sampleMixin } from "./../../mixins/sampleMixin";
 
 export default {
   data() {
@@ -105,6 +108,7 @@ export default {
         elem.$touch();
       }, 100);
     }
-  }
+  },
+  mixins: [sampleMixin]
 };
 </script>
