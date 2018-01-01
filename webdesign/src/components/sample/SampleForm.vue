@@ -62,7 +62,12 @@
 
           .control
             button.button.is-success(@click.prevent="sampleGlobalMethod('qwe')") Mixin method
+            br
             p from mixin - {{ sampleGlobalVar }}
+            br
+          .control
+            button.button.is-success(@click.prevent="updateState()") Update state
+            p from store state - user: {{ getUser }}
 
 </template>
 
@@ -90,12 +95,31 @@ export default {
       ]
     };
   },
-  created() {
-    console.log('created hook');
-    Api.get('/api/sample/sample?test=data')
-      .then(res => console.log(res))
-      .catch(error => console.log(error))
+
+  computed: {
+    getUser() {
+      return this.$store.getters.user;
+    }
   },
+
+  created() {
+    console.log("created hook");
+    // Api.get("/api/sample/sample?test=data")
+    //   .then(res => console.log(res))
+    //   .catch(error => console.log(error));
+
+    Api.sampleGet("sample=params")
+      .then(response => {
+        console.log("response", response.data);
+      })
+      .catch(err => {
+        console.log("err", err);
+      });
+
+    // initialize store state
+    this.$store.dispatch("initializeUser");
+  },
+
   validations: {
     form: {
       name: { required },
@@ -105,6 +129,7 @@ export default {
       sampleTime: { required }
     }
   },
+
   methods: {
     onSubmit() {
       this.$v.form.$touch();
@@ -114,8 +139,12 @@ export default {
       setTimeout(() => {
         elem.$touch();
       }, 100);
+    },
+    updateState() {
+      this.$store.dispatch("updateUser");
     }
   },
+
   mixins: [sampleMixin]
 };
 </script>
