@@ -1,25 +1,19 @@
 import Vue from 'vue';
 import App from './App';
-import VueRouter from 'vue-router';
-import { routes } from './routes';
+import router from './router'
 import Vuelidate from 'vuelidate';
 import Buefy from 'buefy';
 
 // css
+import './styles/main.scss';
 import 'buefy/lib/buefy.css';
-import 'font-awesome/scss/font-awesome.scss'
+import 'font-awesome/scss/font-awesome.scss';
 
 // use
-Vue.use(VueRouter);
 Vue.use(Vuelidate);
 Vue.use(Buefy, {
   defaultIconPack: 'fa'
 })
-
-const router = new VueRouter({
-  routes,
-  mode: 'history'
-});
 
 new Vue({
   el: '#app',

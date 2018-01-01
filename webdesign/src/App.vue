@@ -20,14 +20,4 @@ export default {
     "footer-component": Footer
   }
 };
-
-// <style>
-// @import 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css'
-// </style>
 </script>
-
-<style lang="scss">
-@import 'styles/main.scss';
-</style>
-
-

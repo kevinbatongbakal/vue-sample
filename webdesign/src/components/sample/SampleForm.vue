@@ -69,6 +69,7 @@
 <script>
 import { required, email, numeric } from "vuelidate/lib/validators";
 import { sampleMixin } from "./../../mixins/sampleMixin";
+import Api from "@/api/api";
 
 export default {
   data() {
@@ -88,6 +89,12 @@ export default {
         { id: 4, label: "Option 4" }
       ]
     };
+  },
+  created() {
+    console.log('created hook');
+    Api.get('/api/sample/sample?test=data')
+      .then(res => console.log(res))
+      .catch(error => console.log(error))
   },
   validations: {
     form: {
