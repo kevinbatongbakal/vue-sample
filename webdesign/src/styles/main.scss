@@ -140,12 +140,14 @@ footer{
     }
 }
 .landing{
-    .bg-container{
-        position: relative;
-        .landing-bg{
-            display: block;
-        }
-
+    position: relative;
+    z-index: 2;
+    .content-container{
+       height: calc(100vh - 196.3px);
+       background-image: url(../assets/img/landing-page-bg.png);
+       background-position: center;
+       background-size: cover;
+       background-repeat: no-repeat;
         .container{
             height: 100%;
             .level{
@@ -156,13 +158,18 @@ footer{
                         margin: 0 auto;
                         h1{
                             color: darken($white, 5%);
-                            margin-bottom: 30px;
+                            margin-bottom: 0;
                             font-family: 'Roboto black', sans-serif;
+                        }
+                        p{
+                            color: $white;
+                            margin-bottom: 30px;
+                            font-size: 1.2em;
                         }
                         a{
                             padding: 30px 60px;
                             margin-right: 20px;
-                            @include border-radius(7px);
+                            @include border-radius(3px);
                         }
                     }
                 }
