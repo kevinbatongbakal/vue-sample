@@ -1,11 +1,7 @@
 <template lang="pug">
-  #app.container
-    br
-    br
+  #app
     header-component
-    hr
     router-view
-    hr
     footer-component
 </template>
 

@@ -7,7 +7,6 @@ import store from './store';
 
 // css
 import './styles/main.scss';
-import 'buefy/lib/buefy.css';
 import 'font-awesome/scss/font-awesome.scss';
 
 

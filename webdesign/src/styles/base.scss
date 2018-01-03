@@ -1,0 +1,85 @@
+
+//customization
+
+@import "~bulma/sass/utilities/_all";
+
+$blue               : #17b5f0;
+$dark               : #232526;
+$dark-invert        : #fff;
+$facebook           : #3b5898;
+$google-plus        : #dd4a3d;
+
+$family-sans-serif  : 'Helvetica nue', sans-serif;
+
+
+$primary            : $blue;
+$primary-invert     : $dark-invert;
+$family-primary     : $family-sans-serif;
+
+
+$twitter: #4099FF;
+$twitter-invert: findColorInvert($twitter);
+
+// Setup $colors to use as bulma classes (e.g. 'is-twitter')
+$colors: (
+    "white"         : ($white, $black),
+    "black"         : ($black, $white),
+    "light"         : ($light, $light-invert),
+    "dark"          : ($dark, $dark-invert),
+    "primary"       : ($primary, $primary-invert),
+    "info"          : ($info, $info-invert),
+    "success"       : ($success, $success-invert),
+    "warning"       : ($warning, $warning-invert),
+    "danger"        : ($danger, $danger-invert),
+    "twitter"       : ($twitter, $twitter-invert)
+);
+
+// Links
+$link               : $primary;
+$link-invert        : $primary-invert;
+$link-focus-border  : $primary;
+
+//measurements
+
+$body-height        : calc(100vh - 200px ); 
+
+
+@import "~bulma";
+@import "~buefy/src/scss/buefy";
+
+//custom mixins
+
+@mixin border-radius($radius) {
+    -webkit-border-radius: $radius;
+        -moz-border-radius: $radius;
+        -ms-border-radius: $radius;
+            border-radius: $radius;
+} 
+@mixin transition($property,$easing,$duration){
+    -webkit-transition: $property $easing $duration;
+    -moz-transition: $property $easing $duration;
+    -o-transition: $property $easing $duration;
+    transition: $property $easing $duration;
+}
+
+@mixin afterborder-left($height, $width, $color){
+    content: '';
+    border-left: $width solid $color;
+    height: $height;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+@mixin afterborder-right($height, $width, $color){
+    content: '';
+    border-right: $width solid $color;
+    height: $height;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+}

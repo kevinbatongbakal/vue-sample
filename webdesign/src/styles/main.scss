@@ -1,3 +1,4 @@
+@import "./base.scss";
 // Tech Direct main css
 // create style modules copy implementation from a3 project
 
@@ -9,5 +10,163 @@
 .custom-is-danger {
     .input {
         border-color: #ff3860;
+    }
+}
+
+nav.navbar{
+    -webkit-box-shadow: 0px 3px 6px 1px rgba(224,224,224,1);
+    -moz-box-shadow: 0px 3px 6px 1px rgba(224,224,224,1);
+    box-shadow: 0px 3px 6px 1px rgba(224,224,224,1);
+    .navbar-brand{
+        margin-right: 2.5rem;
+        .techD-logo{
+            max-height: 3.75rem;
+        }
+    }
+   
+    padding: 15px 0;
+    .navbar-menu{
+        @include transition(all, ease, .3s);
+        .navbar-start{
+            a{
+                font-size: 0.875em;
+                color: $dark;
+                letter-spacing: 1px;
+                @include transition(all, ease, .3s);
+                &:hover{
+                    color: $primary;
+                }
+            }
+        }
+        .navbar-end{
+            .button{
+                width: 100px;
+            }
+            .btn-sign-up{
+                background-color: lighten($dark, 10%);
+                color: findColorInvert($black);
+                &:hover{
+                    background-color: lighten($dark, 5%);
+                }
+            }
+        }
+    }
+    
+}
+
+footer{
+    min-height: 100px;
+    background-color: $dark;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    ul{
+        li{
+            display: inline-block;
+            position: relative;
+                a{
+                    color: findColorInvert($dark);
+                    display: inline-block;
+                    padding: 10px 8px;
+                    font-size: 0.875em;
+                    .icon{
+                        padding: 15px;
+                        border: 2px solid darken($white, 20%);;
+                        @include border-radius(50%);
+                        i{
+                            font-size: 1.3em;
+                            color: darken($white, 20%);
+                        }
+    
+                    }
+                    &.fb-icon{
+                        &:hover .icon{
+                            background-color: $facebook;
+                        }
+                        &:hover i{
+                            color: $white;
+                        }
+                        
+                    }
+                    &.gplus-icon, &.mail-icon{
+                        &:hover .icon{
+                            background-color: $google-plus;
+                        }
+                        &:hover i{
+                            color: $white;
+                        }
+                        
+                    }
+                    &.twitter-icon{
+                        &:hover .icon{
+                            background-color: $twitter;
+                        }
+                        &:hover i{
+                            color: $white;
+                        }
+                        
+                    }
+                    
+                }
+        }
+       
+    }
+    .border-right{
+        position: relative;
+        &:after{
+            @include afterborder-right(13px, 1px, $white);
+        }
+    }
+    .rights{
+        padding: 20px;
+        span{
+            color: findColorInvert($dark);
+            font-size: 0.875em;
+            padding: 0 10px;
+            &:first-child{
+                padding-left: 0;
+            }
+            &:not(:last-child){
+                position: relative;
+                &:before{
+                    @include afterborder-right(13px, 1px, $white);
+                }
+                
+            }
+            a{
+                color: findColorInvert($dark);
+            }
+        }
+    }
+}
+.landing{
+    .bg-container{
+        position: relative;
+        .landing-bg{
+            display: block;
+        }
+
+        .container{
+            height: 100%;
+            .level{
+                height: 100%;
+                .level-item{
+                    justify-content: flex-start;
+                    .heading-container{
+                        margin: 0 auto;
+                        h1{
+                            color: darken($white, 5%);
+                            margin-bottom: 30px;
+                            font-family: 'Roboto black', sans-serif;
+                        }
+                        a{
+                            padding: 30px 60px;
+                            margin-right: 20px;
+                            @include border-radius(7px);
+                        }
+                    }
+                }
+            }
+        }
     }
 }
