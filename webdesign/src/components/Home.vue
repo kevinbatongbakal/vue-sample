@@ -2,7 +2,7 @@
   section.landing.section.is-paddingless
     .content-container
         .container
-            .level.is-mobile 
+            .level 
                 .level-item.direction-column
                     .heading-container
                         h1.title.is-1.is-lowercase

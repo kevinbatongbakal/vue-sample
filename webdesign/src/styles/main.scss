@@ -14,9 +14,11 @@
 }
 
 nav.navbar{
-    -webkit-box-shadow: 0px 3px 6px 1px rgba(224,224,224,1);
-    -moz-box-shadow: 0px 3px 6px 1px rgba(224,224,224,1);
-    box-shadow: 0px 3px 6px 1px rgba(224,224,224,1);
+    -webkit-box-shadow: 0px 3px 8px 3px rgba(0,0,0,0.06);
+-moz-box-shadow: 0px 3px 8px 3px rgba(0,0,0,0.06);
+box-shadow: 0px 3px 8px 3px rgba(0,0,0,0.06);
+
+
     .navbar-brand{
         margin-right: 2.5rem;
         .techD-logo{
@@ -60,81 +62,93 @@ footer{
     display: flex;
     justify-content: center;
     align-items: center;
-    ul{
-        li{
-            display: inline-block;
+    position: relative;
+    z-index: 2;
+    .content-container{
+        @media screen and (max-width: 1023px){
+            flex-direction: column;
+        }
+        ul{
+            li{
+                display: inline-block;
+                position: relative;
+                    a{
+                        color: findColorInvert($dark);
+                        display: inline-block;
+                        padding: 10px 8px;
+                        font-size: 0.875em;
+                        .icon{
+                            padding: 15px;
+                            border: 2px solid darken($white, 20%);;
+                            @include border-radius(50%);
+                            @include transition(background-color, .4s, ease);
+                            i{
+                                font-size: 1.3em;
+                                color: darken($white, 20%);
+                                @include transition(color, .4s, ease);
+                            }
+        
+                        }
+                        &.fb-icon{
+                            &:hover .icon{
+                                background-color: $facebook;
+                            }
+                            &:hover i{
+                                color: $white;
+                            }
+                            
+                        }
+                        &.gplus-icon, &.mail-icon{
+                            &:hover .icon{
+                                background-color: $google-plus;
+                            }
+                            &:hover i{
+                                color: $white;
+                            }
+                            
+                        }
+                        &.twitter-icon{
+                            &:hover .icon{
+                                background-color: $twitter;
+                            }
+                            &:hover i{
+                                color: $white;
+                            }
+                            
+                        }
+                        
+                    }
+            }
+           
+        }
+        .border-right{
             position: relative;
-                a{
-                    color: findColorInvert($dark);
-                    display: inline-block;
-                    padding: 10px 8px;
-                    font-size: 0.875em;
-                    .icon{
-                        padding: 15px;
-                        border: 2px solid darken($white, 20%);;
-                        @include border-radius(50%);
-                        i{
-                            font-size: 1.3em;
-                            color: darken($white, 20%);
-                        }
-    
-                    }
-                    &.fb-icon{
-                        &:hover .icon{
-                            background-color: $facebook;
-                        }
-                        &:hover i{
-                            color: $white;
-                        }
-                        
-                    }
-                    &.gplus-icon, &.mail-icon{
-                        &:hover .icon{
-                            background-color: $google-plus;
-                        }
-                        &:hover i{
-                            color: $white;
-                        }
-                        
-                    }
-                    &.twitter-icon{
-                        &:hover .icon{
-                            background-color: $twitter;
-                        }
-                        &:hover i{
-                            color: $white;
-                        }
-                        
+            &:after{
+                @include afterborder-right(13px, 1px, $white);
+            }
+        }
+        .rights{
+            padding: 20px;
+            @media screen and (max-width: 1023px){
+                padding: 0;
+            }
+            span{
+                color: findColorInvert($dark);
+                font-size: 0.875em;
+                padding: 0 10px;
+                &:first-child{
+                    padding-left: 0;
+                }
+                &:not(:last-child){
+                    position: relative;
+                    &:before{
+                        @include afterborder-right(13px, 1px, $white);
                     }
                     
                 }
-        }
-       
-    }
-    .border-right{
-        position: relative;
-        &:after{
-            @include afterborder-right(13px, 1px, $white);
-        }
-    }
-    .rights{
-        padding: 20px;
-        span{
-            color: findColorInvert($dark);
-            font-size: 0.875em;
-            padding: 0 10px;
-            &:first-child{
-                padding-left: 0;
-            }
-            &:not(:last-child){
-                position: relative;
-                &:before{
-                    @include afterborder-right(13px, 1px, $white);
+                a{
+                    color: findColorInvert($dark);
                 }
-                
-            }
-            a{
-                color: findColorInvert($dark);
             }
         }
     }
@@ -143,19 +157,36 @@ footer{
     position: relative;
     z-index: 2;
     .content-container{
-       height: calc(100vh - 196.3px);
        background-image: url(../assets/img/landing-page-bg.png);
        background-position: center;
        background-size: cover;
        background-repeat: no-repeat;
+       height: 100%;
         .container{
             height: 100%;
             .level{
                 height: 100%;
                 .level-item{
                     justify-content: flex-start;
+                    @media screen and (max-width: 768px){
+                        height: 100%;
+                    }
                     .heading-container{
                         margin: 0 auto;
+                        @media screen and (max-width: 1190px){
+                            font-size: 14px;
+                        }
+                        @media screen and (max-width: 768px){
+                            font-size: 12px;
+                            display: inline-block;
+                            width: 75%;
+                        }
+                        @media screen and (max-width: 565px){
+                            font-size: 12px;
+                            display: inline-block;
+                            width: 85%;
+                        }
+                        
                         h1{
                             color: darken($white, 5%);
                             margin-bottom: 0;
@@ -170,10 +201,23 @@ footer{
                             padding: 30px 60px;
                             margin-right: 20px;
                             @include border-radius(3px);
+                            @media screen and (max-width: 768px){
+                                padding: 30px 40px;
+                            }
+                            @media screen and (max-width: 565px){
+                                padding: 20px 25px;
+                            }
                         }
                     }
                 }
             }
         }
+    }
+}
+.tech-sign-up{
+    background-color: $body-bg;
+    h1{
+        color: $label-color;
+        font-weight: 700;
     }
 }

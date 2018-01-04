@@ -3,12 +3,14 @@
 
 @import "~bulma/sass/utilities/_all";
 
-$blue               : #17b5f0;
+$blue               : #04a0e6;
 $dark               : #232526;
 $dark-invert        : #fff;
 $facebook           : #3b5898;
 $google-plus        : #dd4a3d;
-$body-bg            : #e9f2f5;
+$body-bg            : #bcd2df;
+$input-bg           : #f6fafc;
+$label-color        : #4b5b64;
 
 $family-sans-serif  : 'Helvetica nue', sans-serif;
 
@@ -42,7 +44,7 @@ $link-focus-border  : $primary;
 
 //measurements
 
-$body-height        : calc(100vh - 200px ); 
+$body-height        : calc(100vh - 196.3px ); 
 
 
 @import "~bulma";
@@ -83,4 +85,26 @@ $body-height        : calc(100vh - 200px );
     right: 0;
     bottom: 0;
     margin: auto;
+}
+
+// Defaults
+html{
+    overflow-y: auto;
+}
+.section.landing{
+    height: $body-height;
+    min-height: 571.7px;
+}
+.section{
+    min-height: $body-height;
+}
+input, textarea, select{
+    background-color: $input-bg !important;
+    border: #dee8ec;
+    box-shadow: none !important;
+    @include border-radius(0px);
+}
+.field label{
+    color: $label-color ;
+    font-size: .8em;
 }

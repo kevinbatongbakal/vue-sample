@@ -1,7 +1,7 @@
 <template lang="pug">
   footer 
     .container
-        .columns.is-gapless.is-centered.level
+        .columns.is-gapless.is-centered.level.content-container.is-mobile
             
         
             .column.level-item
