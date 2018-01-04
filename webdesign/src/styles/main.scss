@@ -14,11 +14,9 @@
 }
 
 nav.navbar{
-    -webkit-box-shadow: 0px 3px 8px 3px rgba(0,0,0,0.06);
--moz-box-shadow: 0px 3px 8px 3px rgba(0,0,0,0.06);
-box-shadow: 0px 3px 8px 3px rgba(0,0,0,0.06);
-
-
+    -webkit-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.34);
+    -moz-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.34);
+    box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.34);
     .navbar-brand{
         margin-right: 2.5rem;
         .techD-logo{
@@ -215,7 +213,7 @@ footer{
     }
 }
 .tech-sign-up{
-    background-color: $body-bg;
+    
     h1{
         color: $label-color;
         font-weight: 700;

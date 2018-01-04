@@ -5,6 +5,7 @@
             .column.is-half.is-offset-one-quarter
                 .box
                     h1.is-size-3.is-capitalized.has-text-centered Tech Sign Up
+                    br
                     form
                         .field
                             label.label Email *
@@ -15,12 +16,19 @@
                             p.help.is-danger(v-if='!$v.form.email.required && $v.form.email.$dirty') Email is required
                             p.help.is-danger(v-if='!$v.form.email.email && $v.form.email.$dirty') Invalid email
                         .field
-                            label.label Name *
+                            label.label First Name *
                             .control.has-icons-right
-                                input.input(v-model='form.name', @blur='$v.form.name.$touch()', :class='{ "is-danger": $v.form.name.$error }')
-                                span.icon.is-small.is-right(v-if="$v.form.name.$error")
+                                input.input(v-model='form.firstName', @blur='$v.form.firstName.$touch()', :class='{ "is-danger": $v.form.firstName.$error }')
+                                span.icon.is-small.is-right(v-if="$v.form.firstName.$error")
                                     i.fa.fa-lg.fa-exclamation-circle.has-text-danger
-                            p.help.is-danger(v-if='!$v.form.name.required && $v.form.name.$dirty') Name is required
+                            p.help.is-danger(v-if='!$v.form.firstName.required && $v.form.firstName.$dirty') First Name is required
+                        .field
+                            label.label Last Name *
+                            .control.has-icons-right
+                                input.input(v-model='form.lastName', @blur='$v.form.lastName.$touch()', :class='{ "is-danger": $v.form.lastName.$error }')
+                                span.icon.is-small.is-right(v-if="$v.form.lastName.$error")
+                                    i.fa.fa-lg.fa-exclamation-circle.has-text-danger
+                            p.help.is-danger(v-if='!$v.form.lastName.required && $v.form.lastName.$dirty') Last Name is required
 
                         .field
                             label.label ABN *
@@ -49,25 +57,25 @@
                             .column.is-4
                                 .field
                                     label.label City *
-                                    .select(:class='{ "is-danger": $v.form.citySelect.$error }').is-fullwidth
-                                        select(placeholder='Select a character', v-model='form.citySelect', @blur='$v.form.citySelect.$touch()')
-                                            option(v-for='option in cityOptions', :value='cityOptions.id') {{ option.label }}
-                                    p.help.is-danger(v-if='!$v.form.citySelect.required && $v.form.citySelect.$dirty') City is required
+                                    .select(:class='{ "is-danger": $v.form.city.$error }').is-fullwidth
+                                        select(placeholder='Select a character', v-model='form.city', @blur='$v.form.city.$touch()')
+                                            option(v-for='option in cityOptions', :value='option.id') {{ option.label }}
+                                    p.help.is-danger(v-if='!$v.form.city.required && $v.form.city.$dirty') City is required
                             .column.is-4
                                 .field
                                     label.label State *
                                     .control
-                                        .select(:class='{ "is-danger": $v.form.stateOptions.$error }').is-fullwidth
-                                            select(placeholder='Select a character', v-model='form.stateOptions', @blur='$v.form.stateOptions.$touch()')
-                                                option(v-for='option in stateOptions', :value='stateOptions.id') {{ option.label }}
-                                        p.help.is-danger(v-if='!$v.form.stateOptions.required && $v.form.stateOptions.$dirty') State is required
+                                        .select(:class='{ "is-danger": $v.form.state.$error }').is-fullwidth
+                                            select(placeholder='Select a character', v-model='form.state', @blur='$v.form.state.$touch()')
+                                                option(v-for='option in stateOptions', :value='option.id') {{ option.label }}
+                                        p.help.is-danger(v-if='!$v.form.state.required && $v.form.state.$dirty') State is required
                             .column.is-4
                                 .field
                                     label.label Post Code *
-                                    .select(:class='{ "is-danger": $v.form.postCodeOptions.$error }').is-fullwidth
-                                        select(placeholder='Select a character', v-model='form.postCodeOptions', @blur='$v.form.postCodeOptions.$touch()')
-                                            option(v-for='option in postCodeOptions', :value='postCodeOptions.id') {{ option.label }}
-                                    p.help.is-danger(v-if='!$v.form.postCodeOptions.required && $v.form.postCodeOptions.$dirty') Post Code is required
+                                    .select(:class='{ "is-danger": $v.form.postCode.$error }').is-fullwidth
+                                        select(placeholder='Select a character', v-model='form.postCode', @blur='$v.form.postCode.$touch()')
+                                            option(v-for='option in postCodeOptions', :value='option.id') {{ option.label }}
+                                    p.help.is-danger(v-if='!$v.form.postCode.required && $v.form.postCode.$dirty') Post Code is required
                         .field
                             label.label Phone Number *
                             .control.has-icons-right
@@ -78,10 +86,10 @@
 
                         .field
                             label.label English Proficiency *
-                            .select(:class='{ "is-danger": $v.form.engProficencyOption.$error }').is-fullwidth
-                                select(placeholder='Select a character', v-model='form.engProficencyOption', @blur='$v.form.engProficencyOption.$touch()')
-                                    option(v-for='option in engProficencyOption', :value='engProficencyOption.id') {{ option.label }}
-                            p.help.is-danger(v-if='!$v.form.engProficencyOption.required && $v.form.engProficencyOption.$dirty') Post Code is required
+                            .select(:class='{ "is-danger": $v.form.engProficency.$error }').is-fullwidth
+                                select(placeholder='Select a character', v-model='form.engProficency', @blur='$v.form.engProficency.$touch()')
+                                    option(v-for='option in engProficencyOptions', :value='option.id') {{ option.label }}
+                            p.help.is-danger(v-if='!$v.form.engProficency.required && $v.form.engProficency.$dirty') Post Code is required
 
                         .columns
                             .column.is-8
@@ -89,7 +97,7 @@
                                     label.label Rate Range *
                                     .select(:class='{ "is-danger": $v.form.rateRange.$error }').is-fullwidth
                                         select(placeholder='Select a character', v-model='form.rateRange', @blur='$v.form.rateRange.$touch()')
-                                            option(v-for='option in rateRange', :value='rateRange.id') {{ option.label }}
+                                            option(v-for='option in rateRangeOptions', :value='option.id') {{ option.label }}
                                     p.help.is-danger(v-if='!$v.form.rateRange.required && $v.form.rateRange.$dirty') Rate Range is required
                             .column.is-4
                                 .field
@@ -97,19 +105,19 @@
                                     .control
                                         .select(:class='{ "is-danger": $v.form.hourlyRate.$error }').is-fullwidth
                                             select(placeholder='Select a character', v-model='form.hourlyRate', @blur='$v.form.hourlyRate.$touch()')
-                                                option(v-for='option in hourlyRate', :value='hourlyRate.id') {{ option.label }}
+                                                option(v-for='option in hourlyRateOptions', :value='option.id') {{ option.label }}
                                         p.help.is-danger(v-if='!$v.form.hourlyRate.required && $v.form.hourlyRate.$dirty') Hourly is required
                         .field
                             label.label Industry Experience *
                             .select(:class='{ "is-danger": $v.form.experience.$error }').is-fullwidth
                                 select(placeholder='Select a character', v-model='form.experience', @blur='$v.form.experience.$touch()')
-                                    option(v-for='option in experience', :value='experience.id') {{ option.label }}
+                                    option(v-for='option in experienceOptions', :value='option.id') {{ option.label }}
                             p.help.is-danger(v-if='!$v.form.experience.required && $v.form.experience.$dirty') Industry Experience is required
                         .field
                             label.label Skillset *
                             .select(:class='{ "is-danger": $v.form.skillset.$error }').is-fullwidth
                                 select(placeholder='Select a character', v-model='form.skillset', @blur='$v.form.skillset.$touch()')
-                                    option(v-for='option in skillset', :value='skillset.id') {{ option.label }}
+                                    option(v-for='option in skillsetOptions', :value='option.id') {{ option.label }}
                             p.help.is-danger(v-if='!$v.form.skillset.required && $v.form.skillset.$dirty') skillset Code is required
                         br
                         br
@@ -134,15 +142,16 @@ export default {
         return{
             form: {
                 email: '',
-                name: '',
+                firstName: '',
+                lastName: '',
                 abn: '',
                 tradingName: '',
                 address: '',
-                citySelect:'',
-                stateOptions:'',
-                postCodeOptions:'',
+                city:'',
+                state:'',
+                postCode:'',
                 phoneNumber: '',
-                engProficencyOption: '',
+                engProficency: '',
                 rateRange: '',
                 hourlyRate: '',
                 experience: '',
@@ -169,27 +178,27 @@ export default {
                 { id: 3, label: "Option 3" },
                 { id: 4, label: "Option 4" }
             ],
-            engProficencyOption: [
+            engProficencyOptions: [
                 { id: 1, label: "No proficiency" },
                 { id: 2, label: "Intermediate" },
                 { id: 3, label: "Fluent" }
             ],
-            rateRange: [
+            rateRangeOptions: [
                 { id: 1, label: "Range 1" },
                 { id: 2, label: "Range 2" },
                 { id: 3, label: "Range 3" }
             ],
-            hourlyRate: [
+            hourlyRateOptions: [
                 { id: 1, label: "rate 1" },
                 { id: 2, label: "rate 2" },
                 { id: 3, label: "rate 3" }
             ],
-            experience: [
+            experienceOptions: [
                 { id: 1, label: "0 - 1 year" },
                 { id: 2, label: "1 - 2 years" },
                 { id: 3, label: "2 - 5 years" }
             ],
-            skillset: [
+            skillsetOptions: [
                 { id: 1, label: "Junior" },
                 { id: 2, label: "Mid" },
                 { id: 3, label: "Senior" },
@@ -201,19 +210,21 @@ export default {
     validations: {
         form: {
             email: { required, email },
-            name: { required },
+            firstName: { required },
+            lastName: { required },
             abn: { required },
             tradingName: { required },
             address: { required },
-            citySelect: { required },
-            stateOptions: { required },
-            postCodeOptions: { required },
+            city: { required },
+            state: { required },
+            postCode: { required },
             phoneNumber: {required},
-            engProficencyOption: {required},
+            engProficency: {required},
             rateRange: {required},
             hourlyRate: {required},
             experience: {required},
-            skillset: {required}
+            skillset: {required},
+            termsCondition: {required}
         }
     }
 }

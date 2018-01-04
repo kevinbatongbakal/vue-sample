@@ -97,6 +97,10 @@ html{
 }
 .section{
     min-height: $body-height;
+    background-color: $body-bg;
+    h1{
+        font-weight: 700;
+    }
 }
 input, textarea, select{
     background-color: $input-bg !important;
